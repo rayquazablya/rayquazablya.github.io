@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Страница не найдена | d1rok Portfolio</title>
+    <meta name="description" content="Страница не найдена. Вернитесь на главную страницу.">
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="stylesheet" href="assets/boot/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style/style.css?version=10">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+
+    <style>
+        .error-page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-size: 5vw 5vw;
+            background-position: top center;
+        }
+
+        .error-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            filter: drop-shadow(0px 4px 5px black);
+            max-width: 720px;
+            padding: 0 20px;
+        }
+
+        .error-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-family: 'Unbounded-Light';
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 20px;
+        }
+
+        .error-eyebrow::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, rgba(255, 0, 221, 1) 0%, rgba(255, 166, 0, 1) 100%);
+            box-shadow: 0 0 6px rgba(212, 0, 255, 0.6);
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .error-code {
+            font-family: 'MegaSans-Bold';
+            font-size: clamp(90px, 22vw, 220px);
+            line-height: 1;
+            font-weight: 600;
+            color: #ffffff00;
+            -webkit-text-stroke: 2px #fff;
+            user-select: none;
+            margin: 0;
+            position: relative;
+        }
+
+        .error-code span {
+            background: linear-gradient(90deg, rgba(255, 0, 221, 1) 0%, rgba(255, 166, 0, 1) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-stroke: 2px transparent;
+            filter: grayscale(1);
+        }
+
+        .error-title {
+            color: #fff;
+            font-family: 'Unbounded-Regular';
+            font-weight: 600;
+            font-size: clamp(22px, 3.4vw, 38px);
+            margin: 10px 0 16px;
+        }
+
+        .error-text {
+            color: rgb(234 234 234);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 auto 36px;
+            max-width: 480px;
+        }
+
+        .error-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            margin: 0 auto 8px;
+            max-width: 460px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .error-timeline span {
+            width: 8px;
+            height: 22px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.12);
+            flex-shrink: 1;
+        }
+
+        .error-timeline span.is-cut {
+            background: linear-gradient(180deg, rgba(255, 0, 221, 1) 0%, rgba(255, 166, 0, 1) 100%);
+            height: 30px;
+        }
+
+        .error-playhead {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 44px;
+            font-family: 'Unbounded-Light';
+            font-size: 12px;
+            color: #fff;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        .error-playhead::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ff3b3b;
+            box-shadow: 0 0 6px #ff3b3b;
+            animation: pulse 1.2s ease-in-out infinite;
+        }
+
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px;
+            border-radius: 50px;
+            font-family: 'Unbounded-Light';
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .error-btn--primary span {
+            padding: 5px 20px;
+            background: black;
+            color: white;
+            border-radius: 50px;
+        }
+
+        .error-btn--primary {
+            background: linear-gradient(90deg, rgba(255, 0, 221, 1) 0%, rgba(255, 166, 0, 1) 100%);
+            color: #000;
+            font-weight: 600;
+            filter: grayscale(1);
+        }
+
+        .error-btn--primary:hover {
+            filter: grayscale(0);
+            box-shadow: 0px 0px 10px 0px #ff0055;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <div class='position-fixed' id="header"></div>
+
+<div class="body-container"> 
+    <div class="error-page">
+        <div class="error-content" data-aos="fade-up" data-aos-duration="700">
+            <div class="error-eyebrow">ошибка 404</div>
+
+            <h1 class="error-code">4<span>0</span>4</h1>
+
+            <h2 class="error-title">Страница не найдена</h2>
+            <p class="error-text">
+                Похоже, этот кадр вырезали при монтаже — такой страницы не существует
+                или адрес был введён с ошибкой.
+            </p>
+
+
+            <div class="error-actions">
+                <a class="error-btn error-btn--primary" href="index.html#home">
+                    <span>На главную</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class='bottom-page' style="z-index: 100;" id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="./assets/Js/includes.js"></script>
+    <script src="assets/boot/bootstrap.bundle.js"></script>
+  </body>
+</html>
